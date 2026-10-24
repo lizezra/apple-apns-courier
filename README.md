@@ -125,6 +125,28 @@ with CourierClient.connect(identity) as client:
     print(notification.message_id.hex())
 ```
 
+## Bark end-to-end example
+
+[`examples/bark_end_to_end.py`](examples/bark_end_to_end.py) demonstrates a
+complete notification round trip:
+
+1. authenticate with the activation identity;
+2. request a fresh `me.fin.bark` scoped token;
+3. subscribe through Courier;
+4. register the scoped token with Bark and obtain a new `device_key`;
+5. send a uniquely marked test notification;
+6. receive and acknowledge it on the PC.
+
+```bash
+python examples/bark_end_to_end.py \
+  --certificate /secure/path/identity.der \
+  --private-key /secure/path/activation-private.der \
+  --ca-file /secure/path/AppleRootCA.pem
+```
+
+The example does not contain or reuse a Bark key. It registers a new key for
+each run and prints only non-secret sizes and hashes.
+
 ## TLS
 
 TLS verification is mandatory. The default trust store is the Python/OpenSSL
