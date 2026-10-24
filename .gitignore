@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+dist/
+build/
+
+# Sensitive runtime and device material
+*.key
+*.pem
+*.p12
+*.pfx
+*.der
+*.bin
+apns-state/
+notification.json
+.env
+
+# Local editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
